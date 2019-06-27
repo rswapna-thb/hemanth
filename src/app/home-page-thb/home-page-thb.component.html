@@ -1,0 +1,47 @@
+
+<html>
+
+<body>
+<div id="header-wrapper">
+	<div id="header">
+		<div id="logo">
+			<img src="../assets/img/thblogo.jpg" alt="">
+		</div>
+		<div id="menu">
+			<ul>
+				<li class="current_page_item"><a href="#" accesskey="1" title="" [routerLink]="['/Home-page-thb']">Homepage</a></li>
+				<li><a href="#" accesskey="4" title="">Login</a></li>
+				<li><a href="#" accesskey="5" title="" [routerLink]="['/add-employee']">register</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="wrapper">
+	<div id="page-wrapper">
+		<div id="page">
+			<div class="container">
+
+					<ngb-carousel>
+							<ng-template ngbSlide>
+							  <img src="../assets/img/image1.jpg" alt="Random second slide" class="responsive">
+							  
+							</ng-template>
+							<ng-template ngbSlide>
+							  <img src="../assets/img/image2.jpg" alt="Random third slide" class="responsive">
+							</ng-template>
+							<ng-template ngbSlide>
+							  <img src="../assets/img/image3.jpg" alt="Random fourth slide" class="responsive">
+							</ng-template>
+							<ng-template ngbSlide>
+								<img src="../assets/img/image4.jpg" alt="Random fourth slide">
+							  </ng-template>
+						  </ngb-carousel>
+			</div>
+		</div>
+	</div>
+</div>
+	<div id="footer" class="container">
+		<p>&copy; Employee management System</p>
+	</div>
+</body>
+</html>

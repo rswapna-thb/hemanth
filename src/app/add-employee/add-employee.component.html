@@ -1,0 +1,230 @@
+{{employeemodel.date}}
+{{employeemodel.firstName}}
+{{employeemodel.lastName}}
+{{employeemodel.gender}}
+{{employeemodel.maritalStatus}}
+<div class="container-fluid">
+  <div class="col-10 grid margin strech-card">
+      <div class="card">
+          <div class="text-center">
+              <h2>EMPLOYEE ENTRY SCREEN</h2>
+          </div>
+          <form [formGroup]="registerForm" (ngSubmit)="addEmployee(ngForm) && onSubmit()">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group text-right">
+                                  <label for="firstName">First Name</label>
+                                </div>
+                                <div class=" text-right">
+                                  <label for="lastName">Last Name</label>
+                                </div><br>
+                                <div class="form-group text-right">
+                                    <label>Gender</label>
+                                </div><br><br>
+                                <div class="form-group text-right">
+                                    <label>DOB</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <input type="text" [(ngModel)]="employeemodel.firstName" id="firstName" name="firstName" formControlName="firstName"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+                                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                      <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                                  </div>
+                              </div>
+                                <div class="form-group">
+                                    <input type="text" [(ngModel)]="employeemodel.lastName" class="form-control" name="lastName" formControlName="lastName"  [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                                    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                      <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                                </div>
+                              </div>
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <input type="radio" [(ngModel)]="employeemodel.gender" class="text-left" value="male" name="gender" >&nbsp;Male<br>
+                                        <input type="radio" [(ngModel)]="employeemodel.gender"class="text-left" value="female" name="gender">&nbsp;Female
+                                    </div>
+                                    <div class="col-sm-7 text-left">
+                                          <label>MaritalStatus</label>&nbsp;
+                                        <input type="radio" name="maritalStatus" [(ngModel)]="employeemodel.maritalStatus" value="married">Married<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="maritalStatus" [(ngModel)]="employeemodel.maritalStatus" value="Single">&nbsp;Single
+                                    </div>
+                                </div><br>
+                                <div>
+                                    <input type="date" [(ngModel)]="employeemodel.date" name="date" class="form-control" formControlName="date" [ngClass]="{ 'is-invalid': submitted && f.date.errors }">
+                                    <div *ngIf="submitted && f.date.errors" class="invalid-feedback">
+                                        <div *ngIf="f.date.errors.required">Last Name is required</div>
+                                  </div>
+                                </div>
+                            </div>
+                          </div><br>
+                          <div class="text-center">
+                              <div class="text-center">
+                                  <h4>Education</h4>
+                              </div>
+                          </div>
+                          
+                        <div>
+                            
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group text-right"><br><br>
+                                        <label>10th</label><br>
+                                        <label>12th</label><br>
+                                        <label>BE</label><br>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-4">
+                                    <div class="text-center">
+                                        <label for="year">Year</label>
+                                    </div>
+                                      
+                                      <div>
+                                          <input type="text" [(ngModel)]="employeemodel.class_10th_Year" name="year" class="form-control" formControlName="year"  [ngClass]="{ 'is-invalid': submitted && f.year.errors }">
+                                          <div *ngIf="submitted && f.year.errors" class="invalid-feedback">
+                                            <div *ngIf="f.year.errors.required">10th year is required</div>
+                                        </div>
+                                      </div>
+                                      <div>
+                                          <input type="text" [(ngModel)]="employeemodel.class_12th_Year" name="year" class="form-control" formControlName="year"  [ngClass]="{ 'is-invalid': submitted && f.year.errors }">
+                                          <div *ngIf="submitted && f.year.errors" class="invalid-feedback">
+                                            <div *ngIf="f.year.errors.required">12th year is required</div>
+                                        </div>
+                                      </div>
+                                      <div>
+                                          <input type="text" [(ngModel)]="employeemodel.BE_year" class="form-control" name="year" formControlName="year"  [ngClass]="{ 'is-invalid': submitted && f.year.errors }">
+                                          <div *ngIf="submitted && f.year.errors" class="invalid-feedback">
+                                            <div *ngIf="f.year.errors.required">BE year is required</div>
+                                        </div>
+                                      </div>
+                                      
+                                  </div>
+                                  <div class="col-sm-4">
+                                    <div class="text-center">
+                                        <label>Percentage</label>
+                                    </div>
+                                      
+                                      <div>
+                                          <input type="text" [(ngModel)]="employeemodel.class_10th_percentage" name="percenatge" class="form-control" formControlName="percentage"  [ngClass]="{ 'is-invalid': submitted && f.percentage.errors }">
+                                          <div *ngIf="submitted && f.percentage.errors" class="invalid-feedback">
+                                            <div *ngIf="f.percentage.errors.required">10th percentage is required</div>
+                                        </div>
+                                      </div>
+                                      <div>
+                                          <input type="text" [(ngModel)]="employeemodel.class_12th_percentage" name="percenatge" class="form-control" formControlName="percentage"  [ngClass]="{ 'is-invalid': submitted && f.percentage.errors }">
+                                          <div *ngIf="submitted && f.percentage.errors" class="invalid-feedback">
+                                            <div *ngIf="f.percentage.errors.required">12th percenatge is required</div>
+                                        </div>
+                                      </div>
+                                      <div>
+                                          <input type="text" [(ngModel)]="employeemodel.BE_percentage" name="percenatge" class="form-control" formControlName="percentage"  [ngClass]="{ 'is-invalid': submitted && f.percentage.errors }">
+                                          <div *ngIf="submitted && f.percentage.errors" class="invalid-feedback">
+                                            <div *ngIf="f.percentage.errors.required">BE percentage is required</div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                            <div class="row">
+                              <div class="col-sm-5">
+                                <div class="form-group" class="text-right">
+                                  <label>Permanent address</label>
+                                </div><br>
+                                <div class="form-group" class="text-right"><br><br><br>
+                                  <label>Present address</label>
+                                </div>
+                                <div class="form-group" class="text-right"><br><br><br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp; <label>Personal email address</label>
+                                </div><br>
+                                <div class="form-group" class="text-right">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;  <label>Mobile Number</label>
+                              </div><br>
+                              <div class="form-group" class="text-right"> 
+                                <label>Father Name</label>
+                              </div><br>
+                                <div class="text-right" class="text-right">
+                                    <label >PAN</label>
+                                </div><br>
+                                 
+                              
+                              <div class="form-group" class="text-right"> 
+                                  <label>Adhaar</label>
+                              </div><br>
+                              <div class="text-right">
+                                  <label>Passport Number</label>&nbsp;
+                                  <input type="radio" class="text-right" value="radio1" (click)="toggle()" name="passport">&nbsp;Yes<br>&nbsp;&nbsp;
+                                  &nbsp;&nbsp;
+                                  <input type="radio" name="passport" value="radio2" (click)="toggle()" name="passport" checked>&nbsp;No
+                              </div>
+                            </div>
+                            <div class="col-sm-7">
+                              <div class="form-group">
+                                  <textarea rows="3" cols="30" [(ngModel)]="employeemodel.permanent_address" formControlName="permanent_address" name="permanent_address" type="text" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.permanent_address.errors }"></textarea>
+                                  <div *ngIf="submitted && f.permanent_address.errors" class="invalid-feedback">
+                                    <div *ngIf="f.permanent_address.errors.required">Permanent address is required</div>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                  <textarea rows="3" cols="30" [(ngModel)]="employeemodel.present_address" type="text" formControlName="present_address"name="present_address" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.present_address.errors }"></textarea>
+                                  <div *ngIf="submitted && f.present_address.errors" class="invalid-feedback">
+                                    <div *ngIf="f.present_address.errors.required">Present address is required</div>
+                                </div>
+                              </div>
+                                <div class="form-group">
+                                  <input type="text" [(ngModel)]="employeemodel.email" name="email" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.email.errors.required">Email is required</div>
+                                </div>
+                                </div>
+                              
+                              <div class="form-group">
+                                  <input type="text" [(ngModel)]="employeemodel.MobileNumber" name="MobileNumber" class="form-control" formControlName="MobileNumber" [ngClass]="{ 'is-invalid': submitted && f.mobile_num.errors }">
+                                  <div *ngIf="submitted && f.mobile_num.errors" class="invalid-feedback">
+                                    <div *ngIf="f.mobile_num.errors.required">Mobile Number is required</div>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                  <input type="text" [(ngModel)]="employeemodel.FatherName" class="form-control" name="FatherName" formControlName="FatherName" [ngClass]="{ 'is-invalid': submitted && f.FatherName.errors }">
+                                  <div *ngIf="submitted && f.FatherName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.FatherName.errors.required">FatherName is required</div>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                  <input type="text" [(ngModel)]="employeemodel.PAN"class="form-control" name="pan" formControlName="pan" [ngClass]="{ 'is-invalid': submitted && f.pan.errors }">
+                                  <div *ngIf="submitted && f.pan.errors" class="invalid-feedback">
+                                    <div *ngIf="f.pan.errors.required">PAN number is required</div>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                  <input type="text" [(ngModel)]="employeemodel.adhaar" class="form-control" formControlName="adhaar" [ngClass]="{ 'is-invalid': submitted && f.adhaar.errors }">
+                                  <div *ngIf="submitted && f.adhaar.errors" class="invalid-feedback">
+                                    <div *ngIf="f.adhaar.errors.required">Adhaar number is required</div>
+                                </div>
+                              </div><br>
+                              <div class="form-group"   class="text-right">
+                                <input type="text" [(ngModel)]="employeemodel.passport" class="form-control" formControlName="passport" [disabled]="textBoxDisabled" required pattern="[A-Z | a-z]{3}" name="passport" value="passport number" placeholder="Passport Number" [ngClass]="{ 'is-invalid': submitted && f.adhaar.errors }" value="Passport Number">
+                              </div>
+                            </div>
+                        </div>
+                          </div>
+                      </div><br>
+                          <div class="form-group">
+                              <div class="row">
+                                  <div class="col-sm-6 text-right">
+                                    <button class="btn btn-success">Save</button>
+                                  </div>
+                                  <div class="col-sm-6">
+                                    <button class="btn btn-success text-left">Cancel</button>
+                                  </div>
+                              </div>
+                    </div>
+                </div>                   
+            </form> 
+      </div>
+    </div>
+  </div>
